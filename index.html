@@ -1,0 +1,295 @@
+<!--
+ICETCA 2025 - Silver Oak University
+Single-file HTML/CSS/JS conference landing page
+Theme: Blue & White (professional)
+How to use: Save this as `index.html`, open in VS Code and then open in browser or use Live Server extension.
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ICETCA 2025 — Silver Oak University</title>
+  <style>
+    :root{
+      --blue:#0b5ed7; /* primary */
+      --dark:#0b2545;
+      --muted:#6b7280;
+      --bg:#f8fafc;
+      --card:#ffffff;
+      --maxw:1100px;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--dark);line-height:1.5}
+    .container{max-width:var(--maxw);margin:0 auto;padding:24px}
+
+    /* NAV */
+    header{background:linear-gradient(90deg,var(--card),#eef7ff);position:sticky;top:0;z-index:30;border-bottom:1px solid rgba(11,78,215,0.06)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 24px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:56px;height:56px;background:var(--blue);color:white;font-weight:700;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px}
+    .brand h1{margin:0;font-size:18px}
+    .brand p{margin:0;font-size:13px;color:var(--muted)}
+    nav a{margin-left:16px;color:var(--dark);text-decoration:none;font-weight:600}
+    nav a:hover{text-decoration:underline}
+
+    /* HERO */
+    .hero{display:grid;grid-template-columns:1fr;gap:20px;align-items:center;padding:48px 24px}
+    .hero-left h2{font-size:28px;margin:0;color:var(--blue)}
+    .hero-left h3{font-size:32px;margin:10px 0 0}
+    .hero-left p{color:var(--muted);max-width:70%}
+    .cta{margin-top:18px}
+    .btn{background:var(--blue);color:#fff;padding:10px 16px;border-radius:8px;border:none;cursor:pointer;font-weight:700}
+    .secondary{background:transparent;border:2px solid rgba(11,78,215,0.12);color:var(--blue);padding:8px 14px;border-radius:8px;font-weight:700;margin-left:12px}
+
+    /* Cards */
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:24px}
+    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(11,78,215,0.06)}
+    .card h4{margin:6px 0 0}
+    .muted{color:var(--muted)}
+
+    /* Speakers */
+    .speakers{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:16px}
+    .speaker{background:linear-gradient(180deg,#fff,#f7fbff);padding:14px;border-radius:12px;display:flex;gap:12px;align-items:center}
+    .avatar{width:72px;height:72px;border-radius:10px;background:linear-gradient(135deg,#dbeafe,#bfdbfe);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--blue)}
+
+    /* schedule */
+    .schedule{margin-top:12px}
+    .sched-item{display:flex;justify-content:space-between;padding:12px;border-radius:10px;background:linear-gradient(90deg,#fff,#f3f8ff);margin-bottom:8px}
+    .time{color:var(--muted);font-weight:700}
+
+    /* form */
+    form{display:flex;flex-direction:column;gap:10px}
+    input,select,textarea{padding:10px;border-radius:8px;border:1px solid #e6eef9}
+    input:focus,select:focus,textarea:focus{outline:2px solid rgba(11,78,215,0.12)}
+
+    /* footer */
+    footer{padding:28px 24px;margin-top:36px;background:linear-gradient(180deg,#eef7ff,#fff);border-top:1px solid rgba(11,78,215,0.04)}
+
+    /* responsive */
+    @media(min-width:880px){
+      .hero{grid-template-columns:1fr 360px}
+      .hero-left p{max-width:90%}
+      .nav a{margin-left:22px}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav container">
+    <div class="brand">
+      <div class="logo">SOU</div>
+      <div>
+        <h1>ICETCA 2025</h1>
+        <p>Silver Oak University, Ahmedabad • 12 Dec 2025</p>
+      </div>
+    </div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#speakers">Speakers</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#register">Register</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <div class="hero-left">
+      <h2>Innovating the Future:</h2>
+      <h3>Cloud, AI & Security for Next‑Gen Computing</h3>
+      <p class="muted">Join researchers, industry professionals, and students at Silver Oak University for a one‑day conference focusing on cutting‑edge developments in Cloud Computing, Artificial Intelligence, and Cyber Security. Network, learn, and present your work.</p>
+      <div class="cta">
+        <button class="btn" onclick="document.getElementById('register').scrollIntoView({behavior:'smooth'})">Register Now</button>
+        <button class="secondary" onclick="document.getElementById('schedule').scrollIntoView({behavior:'smooth'})">View Schedule</button>
+      </div>
+
+      <div class="cards" aria-hidden="true">
+        <div class="card">
+          <strong>Organized by</strong>
+          <div class="muted">Dept. of Computer Engineering, Silver Oak University</div>
+        </div>
+        <div class="card">
+          <strong>Venue</strong>
+          <div class="muted">Silver Oak University Campus, Ahmedabad</div>
+        </div>
+        <div class="card">
+          <strong>Registration</strong>
+          <div class="muted">Student, Faculty, Industry & Listener categories</div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="card" style="height:100%">
+      <h4 style="color:var(--blue)">Day 1 • 12 Dec 2025</h4>
+      <p class="muted">Science & Technology Auditorium, Silver Oak University</p>
+
+      <div style="margin-top:12px">
+        <h4>Featured Tracks</h4>
+        <ul class="muted" style="margin:6px 0 0;padding-left:18px">
+          <li>Responsible AI & Governance</li>
+          <li>Cloud Security & DevSecOps</li>
+          <li>Scalable Data Engineering</li>
+        </ul>
+      </div>
+
+      <div style="margin-top:16px">
+        <h4>Quick Links</h4>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+          <a href="#speakers" style="text-decoration:none;color:var(--blue);font-weight:700">Speakers</a>
+          <a href="#register" style="text-decoration:none;color:var(--blue);font-weight:700">Register</a>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" style="margin-top:28px">
+    <h3 style="color:var(--blue)">About the Conference</h3>
+    <p class="muted">ICETCA 2025 is a one‑day international conference organized by the Department of Computer Engineering at Silver Oak University. It aims to bring together experts from academia and industry to discuss practical research, case studies, and emerging technologies in cloud computing, AI, and cyber security.</p>
+  </section>
+
+  <!-- SPEAKERS -->
+  <section id="speakers" style="margin-top:24px">
+    <h3 style="color:var(--blue)">Keynote Speakers</h3>
+    <div class="speakers">
+      <div class="speaker">
+        <div class="avatar">AK</div>
+        <div>
+          <div style="font-weight:700">Dr. Aisha Khan</div>
+          <div class="muted">AI Researcher, IIT Bombay</div>
+          <div style="margin-top:6px" class="muted">Talk: Trustworthy AI in Cloud Environments</div>
+        </div>
+      </div>
+
+      <div class="speaker">
+        <div class="avatar">RM</div>
+        <div>
+          <div style="font-weight:700">Mr. Rahul Mehta</div>
+          <div class="muted">CTO, CloudWorks</div>
+          <div style="margin-top:6px" class="muted">Talk: Zero Trust in Multi‑Cloud Security</div>
+        </div>
+      </div>
+
+      <div class="speaker">
+        <div class="avatar">LS</div>
+        <div>
+          <div style="font-weight:700">Prof. Leela Sharma</div>
+          <div class="muted">Data Scientist, IISc Bangalore</div>
+          <div style="margin-top:6px" class="muted">Talk: Responsible AI for the Next Decade</div>
+        </div>
+      </div>
+
+      <div class="speaker">
+        <div class="avatar">SR</div>
+        <div>
+          <div style="font-weight:700">Ms. Sneha Reddy</div>
+          <div class="muted">Senior Engineer, Microsoft India</div>
+          <div style="margin-top:6px" class="muted">Talk: Serverless Computing & Edge AI</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHEDULE -->
+  <section id="schedule" style="margin-top:24px">
+    <h3 style="color:var(--blue)">Day 1 Schedule — 12 Dec 2025</h3>
+    <div class="schedule">
+      <div class="sched-item"><div>Registration & Welcome Tea</div><div class="time">09:00 AM</div></div>
+      <div class="sched-item"><div>Inaugural Ceremony by Hon. Vice Chancellor</div><div class="time">10:00 AM</div></div>
+      <div class="sched-item"><div>Keynote — Dr. Aisha Khan</div><div class="time">10:30 AM</div></div>
+      <div class="sched-item"><div>Paper Presentations (Track 1 – Cloud)</div><div class="time">12:00 PM</div></div>
+      <div class="sched-item"><div>Lunch Break</div><div class="time">01:00 PM</div></div>
+      <div class="sched-item"><div>Workshop — Building Secure Cloud Apps</div><div class="time">02:00 PM</div></div>
+      <div class="sched-item"><div>Invited Talk — Prof. Leela Sharma</div><div class="time">03:30 PM</div></div>
+      <div class="sched-item"><div>Poster Session & Networking</div><div class="time">04:30 PM</div></div>
+      <div class="sched-item"><div>Valedictory Function & Closing Remarks</div><div class="time">05:30 PM</div></div>
+    </div>
+  </section>
+
+  <!-- REGISTER -->
+  <section id="register" style="margin-top:28px">
+    <h3 style="color:var(--blue)">Register</h3>
+    <div style="display:grid;grid-template-columns:1fr;gap:16px;margin-top:12px">
+      <div class="card">
+        <form id="regForm" onsubmit="submitForm(event)">
+          <label>Full name</label>
+          <input id="name" required placeholder="Your full name" />
+          <label>Email</label>
+          <input id="email" type="email" required placeholder="you@example.com" />
+          <label>Category</label>
+          <select id="category">
+            <option>SOU Student — ₹1,000</option>
+            <option>External Student — ₹1,500</option>
+            <option>Faculty / Research Scholar — ₹3,000</option>
+            <option>Industry Professional — ₹5,000</option>
+            <option>Listener — ₹800</option>
+          </select>
+          <button class="btn" style="margin-top:8px" type="submit">Submit Registration</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h4 style="color:var(--blue)">Registration Fees</h4>
+        <ul class="muted" style="margin-top:8px">
+          <li>SOU Student — ₹1,000</li>
+          <li>External Student — ₹1,500</li>
+          <li>Faculty / Research Scholar — ₹3,000</li>
+          <li>Industry Professional — ₹5,000</li>
+          <li>Listener — ₹800</li>
+        </ul>
+
+        <div style="margin-top:12px">
+          <h4 style="color:var(--blue)">Venue</h4>
+          <p class="muted">Silver Oak University Campus, Ahmedabad, India</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="margin-top:28px;margin-bottom:28px">
+    <h3 style="color:var(--blue)">Contact</h3>
+    <div style="display:flex;flex-direction:column;gap:12px;margin-top:8px">
+      <div class="card">
+        <strong>Email:</strong> <a href="mailto:icetca2025@sou.edu.in">icetca2025@sou.edu.in</a><br>
+        <strong>Phone:</strong> +91 79 1234 5678
+      </div>
+
+      <div class="card">
+        <strong>Location</strong>
+        <p class="muted" style="margin-top:6px">Silver Oak University, Ahmedabad — Science & Technology Campus</p>
+        <!-- Placeholder map: replace with your embed if available -->
+        <div style="width:100%;height:200px;background:linear-gradient(90deg,#eef7ff,#fff);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--muted);margin-top:8px">Google Map embed here</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container" style="display:flex;justify-content:space-between;align-items:center">
+    <div>© 2025 Silver Oak University — ICETCA 2025</div>
+    <div style="color:var(--muted)">Organized by Dept. of Computer Engineering</div>
+  </div>
+</footer>
+
+<script>
+  function submitForm(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const category = document.getElementById('category').value;
+    if(!name || !email){ alert('Please enter name and email'); return }
+    // For now we simply show a confirmation. Replace with server call when ready.
+    alert('Thank you, ' + name + '! Your registration for ' + category + ' is received.');
+    document.getElementById('regForm').reset();
+  }
+</script>
+
+</body>
+</html>
